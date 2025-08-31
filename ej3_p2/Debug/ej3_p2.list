@@ -453,9 +453,9 @@ int main(void)
  8000596:	2120      	movs	r1, #32
  8000598:	480f      	ldr	r0, [pc, #60]	@ (80005d8 <main+0xa8>)
  800059a:	f000 fcd0 	bl	8000f3e <HAL_GPIO_TogglePin>
-		if(counter>=5){
+		if(counter>=10){
  800059e:	69fb      	ldr	r3, [r7, #28]
- 80005a0:	2b04      	cmp	r3, #4
+ 80005a0:	2b09      	cmp	r3, #9
  80005a2:	d9de      	bls.n	8000562 <main+0x32>
 			counter=0;
  80005a4:	2300      	movs	r3, #0

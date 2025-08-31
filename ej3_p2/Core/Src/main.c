@@ -108,7 +108,7 @@ int main(void)
 		counter++;
 		delayInit(&The_Delay,time_f[idx]);
 		HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-		if(counter>=5){
+		if(counter>=10){
 			counter=0;
 			delayWrite(&The_Delay,time_f[idx]);
 			(idx>=2)?idx=0:idx++;
