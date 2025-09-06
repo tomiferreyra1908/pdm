@@ -31,6 +31,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define MAX_Toggle 10
 
 /* USER CODE END PD */
 
@@ -108,10 +109,10 @@ int main(void)
 		counter++;
 		delayInit(&The_Delay,time_f[idx]);
 		HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-		if(counter>=10){
-			counter=0;
+		if(counter>=MAX_Toggle){						//Se realizan 10 Toggles por frecuencia
+			counter=0;									//Saturacion de counter
 			delayWrite(&The_Delay,time_f[idx]);
-			(idx>=2)?idx=0:idx++;
+			(idx>=2)?idx=0:idx++;						//Saturacion de idx
 		}
 	  }
 
@@ -210,10 +211,13 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
+/*Funcion para inicializar el delay*/
 void delayInit( delay_t * delay, tick_t duration ){
-	delay->running=false;
+	delay->running=false;								//asignaciones
 	delay->duration=duration;
 }
+
+/*Funcion para chechear si se termino el tiempo de delay*/
 bool_t delayRead( delay_t * delay ){
 	if(!delay->running){
 		delay->startTime= HAL_GetTick();
@@ -226,9 +230,12 @@ bool_t delayRead( delay_t * delay ){
 
 	return (delay->running);
 }
+
+/*Funcion para modificar el tiempo de delay*/
 void delayWrite( delay_t * delay, tick_t duration ){
 	delay->duration=duration;
 }
+
 /* USER CODE END 4 */
 
 /**

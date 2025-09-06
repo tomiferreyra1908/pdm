@@ -100,15 +100,15 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  if(!delayRead(&The_Delay)){
+	  if(!delayRead(&The_Delay)){						//Solo corre este condicional cuando se cumplio el tiempo de delay
 		delayInit(&The_Delay,time_f);
 		HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
 	  }
 
 
-	  //Make something else during the blink
+	  /* Se puede seguir ejecutando tareas durante el blinky */
 
-	  if(HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin)){			//example: A switch of the period
+	  if(HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin)){		//ejemplo: Cambio de periodo solo una vez de 100ms a 500ms
 		  delayWrite(&The_Delay,500);
 	  }
 
@@ -204,10 +204,13 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
+/*Funcion para inicializar el delay*/
 void delayInit( delay_t * delay, tick_t duration ){
-	delay->running=false;
+	delay->running=false;								//asignaciones
 	delay->duration=duration;
 }
+
+/*Funcion para chechear si se termino el tiempo de delay*/
 bool_t delayRead( delay_t * delay ){
 	if(!delay->running){
 		delay->startTime= HAL_GetTick();
@@ -220,9 +223,12 @@ bool_t delayRead( delay_t * delay ){
 
 	return (delay->running);
 }
+
+/*Funcion para modificar el tiempo de delay*/
 void delayWrite( delay_t * delay, tick_t duration ){
 	delay->duration=duration;
 }
+
 /* USER CODE END 4 */
 
 /**

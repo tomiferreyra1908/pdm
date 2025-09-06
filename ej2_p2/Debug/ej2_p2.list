@@ -416,7 +416,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  if(!delayRead(&The_Delay)){
+	  if(!delayRead(&The_Delay)){						//Solo corre este condicional cuando se cumplio el tiempo de delay
  8000550:	463b      	mov	r3, r7
  8000552:	4618      	mov	r0, r3
  8000554:	f000 f8ff 	bl	8000756 <delayRead>
@@ -437,9 +437,9 @@ int main(void)
 	  }
 
 
-	  //Make something else during the blink
+	  /* Se puede seguir ejecutando tareas durante el blinky */
 
-	  if(HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin)){			//example: A switch of the period
+	  if(HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin)){		//ejemplo: Cambio de periodo solo una vez de 100ms a 500ms
  8000576:	f44f 5100 	mov.w	r1, #8192	@ 0x2000
  800057a:	4807      	ldr	r0, [pc, #28]	@ (8000598 <main+0x68>)
  800057c:	f000 fca6 	bl	8000ecc <HAL_GPIO_ReadPin>
@@ -451,7 +451,7 @@ int main(void)
  8000588:	f44f 71fa 	mov.w	r1, #500	@ 0x1f4
  800058c:	4618      	mov	r0, r3
  800058e:	f000 f908 	bl	80007a2 <delayWrite>
-	  if(!delayRead(&The_Delay)){
+	  if(!delayRead(&The_Delay)){						//Solo corre este condicional cuando se cumplio el tiempo de delay
  8000592:	e7dd      	b.n	8000550 <main+0x20>
  8000594:	40020000 	.word	0x40020000
  8000598:	40020800 	.word	0x40020800
@@ -717,13 +717,14 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
+/*Funcion para inicializar el delay*/
 void delayInit( delay_t * delay, tick_t duration ){
  8000734:	b480      	push	{r7}
  8000736:	b083      	sub	sp, #12
  8000738:	af00      	add	r7, sp, #0
  800073a:	6078      	str	r0, [r7, #4]
  800073c:	6039      	str	r1, [r7, #0]
-	delay->running=false;
+	delay->running=false;								//asignaciones
  800073e:	687b      	ldr	r3, [r7, #4]
  8000740:	2200      	movs	r2, #0
  8000742:	721a      	strb	r2, [r3, #8]
@@ -739,6 +740,8 @@ void delayInit( delay_t * delay, tick_t duration ){
  8000754:	4770      	bx	lr
 
 08000756 <delayRead>:
+
+/*Funcion para chechear si se termino el tiempo de delay*/
 bool_t delayRead( delay_t * delay ){
  8000756:	b580      	push	{r7, lr}
  8000758:	b082      	sub	sp, #8
@@ -788,6 +791,8 @@ bool_t delayRead( delay_t * delay ){
  80007a0:	bd80      	pop	{r7, pc}
 
 080007a2 <delayWrite>:
+
+/*Funcion para modificar el tiempo de delay*/
 void delayWrite( delay_t * delay, tick_t duration ){
  80007a2:	b480      	push	{r7}
  80007a4:	b083      	sub	sp, #12

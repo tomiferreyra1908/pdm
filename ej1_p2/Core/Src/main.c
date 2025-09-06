@@ -111,7 +111,7 @@ int main(void)
 	  }
 
 	  delayInit(&The_Delay,time_f);
-	  while(delayRead(&The_Delay));    //Normal delay
+	  while(delayRead(&The_Delay));    //Delay bloqueante
 
 
   }
@@ -205,10 +205,13 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
+/*Funcion para inicializar el delay*/
 void delayInit( delay_t * delay, tick_t duration ){
-	delay->running=false;
+	delay->running=false;								//asignaciones
 	delay->duration=duration;
 }
+
+/*Funcion para chechear si se termino el tiempo de delay*/
 bool_t delayRead( delay_t * delay ){
 	if(!delay->running){
 		delay->startTime= HAL_GetTick();
@@ -221,9 +224,12 @@ bool_t delayRead( delay_t * delay ){
 
 	return (delay->running);
 }
+
+/*Funcion para modificar el tiempo de delay*/
 void delayWrite( delay_t * delay, tick_t duration ){
 	delay->duration=duration;
 }
+
 /* USER CODE END 4 */
 
 /**
