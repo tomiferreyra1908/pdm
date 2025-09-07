@@ -1,0 +1,17 @@
+20:53:13 **** Incremental Build of configuration Debug for project ej1_p3 ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_delay.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/ej1_p3/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/ej1_p3/Drivers/API/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_delay.d" -MT"Drivers/API/Src/API_delay.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_delay.o"
+arm-none-eabi-gcc -o "ej1_p3.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/ej1_p3/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ej1_p3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ej1_p3.elf
+ 
+arm-none-eabi-size  ej1_p3.elf 
+arm-none-eabi-objdump -h -S ej1_p3.elf  > "ej1_p3.list"
+   text	   data	    bss	    dec	    hex	filename
+   6696	     12	   1572	   8280	   2058	ej1_p3.elf
+Finished building: default.size.stdout
+ 
+Finished building: ej1_p3.list
+ 
+
+20:53:14 Build Finished. 0 errors, 0 warnings. (took 546ms)
+
