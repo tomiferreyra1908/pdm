@@ -1,0 +1,10 @@
+21:08:28 **** Incremental Build of configuration Debug for project ej3_p3 ****
+make -j8 all 
+arm-none-eabi-size  ej3_p3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6788	     12	   1572	   8372	   20b4	ej3_p3.elf
+Finished building: default.size.stdout
+ 
+
+21:08:28 Build Finished. 0 errors, 0 warnings. (took 140ms)
+
