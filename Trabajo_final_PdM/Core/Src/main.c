@@ -40,12 +40,14 @@ typedef enum{null_event,button,time_off,ADC_ready}event_t;		//eventos
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define THE_BUTTON GPIOC,GPIO_PIN_13
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 const tick_t mechanic_tao=300;
+const float SCALE = 0.244;
+const uint32_t OFFSET=1000;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -55,7 +57,7 @@ TIM_HandleTypeDef htim3;
 
 /* USER CODE BEGIN PV */
 volatile uint32_t adc_value_x=0;
-volatile delay_t delay_mech;
+delay_t delay_mech;
 volatile dato_t ADC_data;
 
 /* USER CODE END PV */
@@ -69,6 +71,7 @@ static void MX_TIM3_Init(void);
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc);
 void PWM_Control(uint32_t control);
+event_t events();
 void FSM(state_t *state,event_t evt);
 void action_read(void);
 void action_write(uint32_t ADC_value,delay_t * mechanic_delay);
@@ -119,7 +122,7 @@ int main(void)
 
   //HAL_ADC_Start_IT(&hadc1);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
-  PWM_Control(10000);
+  PWM_Control(20000);
 
   state_t state_FSM=wait;
   event_t event_FSM;
@@ -137,20 +140,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	event_FSM=null_event;
 
-	if(ADC_data.dato_ready==true){
-		event_FSM=ADC_ready;
-	}
-
-	if(delayRead(&delay_mech) == ready_mode){
-		event_FSM=time_off;
-	}
-
-	if(!HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin)){			//niego porque tiene resistencia de pull-up (NC)
-		event_FSM=button;
-	}
-
+	event_FSM = events();
 	FSM(&state_FSM,event_FSM);
 
   }
@@ -331,7 +322,6 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
-  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
@@ -339,7 +329,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin : PC13 */
   GPIO_InitStruct.Pin = GPIO_PIN_13;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PA5 */
@@ -348,12 +338,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : PB1 */
-  GPIO_InitStruct.Pin = GPIO_PIN_1;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
@@ -371,7 +355,25 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 }
 
 void PWM_Control(uint32_t control){
+	control = (control * SCALE) + OFFSET;
 	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, control);
+}
+
+event_t events(){
+	event_t event_r=null_event;
+
+	if(ADC_data.dato_ready==true){
+		event_r=ADC_ready;
+	}
+
+	if(delayRead(&delay_mech) == ready_mode){
+		event_r=time_off;
+	}
+
+	if(!HAL_GPIO_ReadPin(THE_BUTTON)){			//niego porque tiene resistencia de pull-up (NC)
+		event_r=button;
+	}
+	return event_r;
 }
 
 /*Funcion para la maquina de estados*/
