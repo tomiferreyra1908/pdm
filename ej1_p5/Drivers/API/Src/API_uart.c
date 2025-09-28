@@ -18,14 +18,14 @@ bool uartInit(){
 }
 
 void uartSendString(uint8_t * pstring){
-	uint32_t i=0;
+	uint16_t i=0;
 	char end='a';
 	do{
 		end=pstring[i];
 		i++;
 	}while(end!='\0');
 
-	HAL_UART_Transmit(&huart1, pstring, sizeof(&pstring), HAL_MAX_DELAY);
+	HAL_UART_Transmit(&huart1, pstring, i, HAL_MAX_DELAY);
 }
 
 

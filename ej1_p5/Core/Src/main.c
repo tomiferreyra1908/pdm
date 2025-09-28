@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -32,7 +32,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define TAM 7
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -93,11 +93,11 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   char saludo[] = "Hola mundo\n";
+  char echo[TAM];
 
   uartInit();
 
-  //uartSendString((uint8_t*)&saludo);
-  uartSendStringSize(saludo,12);
+  uartSendString(saludo);
 
   /* USER CODE END 2 */
 
@@ -108,6 +108,12 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  uartReceiveStringSize(&echo,TAM);
+	  if(echo[0]!='\0'){
+		  uartSendStringSize(echo,TAM);
+	  }
+
+	  HAL_Delay(1000);
 
   }
   /* USER CODE END 3 */

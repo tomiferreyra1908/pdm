@@ -1,10 +1,44 @@
-21:55:46 **** Incremental Build of configuration Debug for project ej1_p5 ****
+11:14:43 **** Incremental Build of configuration Debug for project ej1_p5 ****
 make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/ej1_p5/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/ej1_p5/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/ej1_p5/Drivers/API" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/ej1_p5/Drivers" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:100:18: warning: pointer targets in passing argument 1 of 'uartSendString' differ in signedness [-Wpointer-sign]
+  100 |   uartSendString(saludo);
+      |                  ^~~~~~
+      |                  |
+      |                  char *
+In file included from ../Core/Inc/main.h:36,
+                 from ../Core/Src/main.c:20:
+/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/ej1_p5/Drivers/API/Inc/API_uart.h:16:31: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   16 | void uartSendString(uint8_t * pstring);
+      |                     ~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:111:33: warning: passing argument 1 of 'uartReceiveStringSize' from incompatible pointer type [-Wincompatible-pointer-types]
+  111 |           uartReceiveStringSize(&echo,TAM);
+      |                                 ^~~~~
+      |                                 |
+      |                                 char (*)[7]
+/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/ej1_p5/Drivers/API/Inc/API_uart.h:18:38: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char (*)[7]'
+   18 | void uartReceiveStringSize(uint8_t * pstring, uint16_t size);
+      |                            ~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:113:38: warning: pointer targets in passing argument 1 of 'uartSendStringSize' differ in signedness [-Wpointer-sign]
+  113 |                   uartSendStringSize(echo,TAM);
+      |                                      ^~~~
+      |                                      |
+      |                                      char *
+/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/ej1_p5/Drivers/API/Inc/API_uart.h:17:35: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   17 | void uartSendStringSize(uint8_t * pstring, uint16_t size);
+      |                         ~~~~~~~~~~^~~~~~~
+arm-none-eabi-gcc -o "ej1_p5.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/ej1_p5/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ej1_p5.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ej1_p5.elf
+ 
 arm-none-eabi-size  ej1_p5.elf 
+arm-none-eabi-objdump -h -S ej1_p5.elf  > "ej1_p5.list"
    text	   data	    bss	    dec	    hex	filename
-   8940	     12	   1644	  10596	   2964	ej1_p5.elf
+   9448	     12	   1644	  11104	   2b60	ej1_p5.elf
 Finished building: default.size.stdout
  
+Finished building: ej1_p5.list
+ 
 
-21:55:46 Build Finished. 0 errors, 0 warnings. (took 232ms)
+11:14:44 Build Finished. 0 errors, 3 warnings. (took 275ms)
 
