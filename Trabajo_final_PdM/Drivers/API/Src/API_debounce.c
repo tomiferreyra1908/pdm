@@ -5,7 +5,7 @@
  *      Author: tomas1908
  */
 
-#include <API_delay_TF.h>
+#include <API_delay.h>
 #include "API_debounce.h"
 #include "stm32f4xx_hal.h"
 
@@ -40,15 +40,27 @@ void debounceFSM_update(){
 
 		case BUTTON_FALLING:
 			if(!delayRead(&NB_delay)){
-				buttonPressed();
-				state=BUTTON_DOWN;
+				if(Button_state==GPIO_PIN_RESET){
+					buttonPressed();
+					state=BUTTON_DOWN;
+				}
+				else{
+					buttonReleased();
+					state=BUTTON_UP;
+				}
 			}
 			break;
 
 		case BUTTON_RAISING:
 			if(!delayRead(&NB_delay)){
-				buttonReleased();
-				state=BUTTON_UP;
+				if(Button_state==GPIO_PIN_SET){
+					buttonReleased();
+					state=BUTTON_UP;
+				}
+				else{
+					buttonPressed();
+					state=BUTTON_DOWN;
+				}
 			}
 			break;
 		default:

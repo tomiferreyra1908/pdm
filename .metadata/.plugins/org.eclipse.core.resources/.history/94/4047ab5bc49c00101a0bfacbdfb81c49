@@ -1,0 +1,56 @@
+/*
+ * API_delay.c
+ *
+ *  Created on: Sep 7, 2025
+ *      Author: tomas1908
+ */
+
+#include <API_delay.h>
+
+void delayInit( delay_t * delay, tick_t duration ){
+	delay->running=false;								//asignaciones
+	delay->duration=duration;
+}
+
+bool delayRead( delay_t * delay ){
+	if(!delay->running){
+		delay->startTime= HAL_GetTick();
+		delay->running=true;
+	}
+
+	if(HAL_GetTick()-delay->startTime >= delay->duration){
+		delay->running=false;
+	}
+
+	return (delay->running);
+}
+
+void delayWrite( delay_t * delay, tick_t duration ){
+	delay->duration=duration;
+}
+
+
+
+void delayInit_2( delay_t * delay, tick_t duration ){
+	delay->running=able_mode;								//asignaciones
+	delay->duration=duration;
+	delay->startTime= get_tick();
+}
+
+mode_t delayRead_2( delay_t * delay ){
+	if(delay->running==able_mode){
+		if(get_tick()-delay->startTime >= delay->duration){
+			delay->running=ready_mode;
+		}
+	}
+	return (delay->running);
+}
+
+
+void delayDisable_2(delay_t * delay){
+	delay->running=disable_mode;
+}
+
+
+
+

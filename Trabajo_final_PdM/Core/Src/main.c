@@ -22,6 +22,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdbool.h>
+#include "fonts.h"
+#include "ssd1306.h"
 
 /* USER CODE END Includes */
 
@@ -53,6 +55,8 @@ const uint32_t OFFSET=1000;
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
 
+I2C_HandleTypeDef hi2c1;
+
 TIM_HandleTypeDef htim3;
 
 /* USER CODE BEGIN PV */
@@ -67,6 +71,7 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM3_Init(void);
+static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc);
@@ -118,11 +123,14 @@ int main(void)
   MX_GPIO_Init();
   MX_ADC1_Init();
   MX_TIM3_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-
+  debounceFSM_init();
+  SSD1306_Init();
   //HAL_ADC_Start_IT(&hadc1);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
   PWM_Control(20000);
+  wellcome();
 
   state_t state_FSM=wait;
   event_t event_FSM;
@@ -140,7 +148,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
 	event_FSM = events();
 	FSM(&state_FSM,event_FSM);
 
@@ -248,6 +255,40 @@ static void MX_ADC1_Init(void)
 }
 
 /**
+  * @brief I2C1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_I2C1_Init(void)
+{
+
+  /* USER CODE BEGIN I2C1_Init 0 */
+
+  /* USER CODE END I2C1_Init 0 */
+
+  /* USER CODE BEGIN I2C1_Init 1 */
+
+  /* USER CODE END I2C1_Init 1 */
+  hi2c1.Instance = I2C1;
+  hi2c1.Init.ClockSpeed = 400000;
+  hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
+  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c1.Init.OwnAddress2 = 0;
+  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN I2C1_Init 2 */
+
+  /* USER CODE END I2C1_Init 2 */
+
+}
+
+/**
   * @brief TIM3 Initialization Function
   * @param None
   * @retval None
@@ -322,6 +363,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
@@ -360,17 +402,18 @@ void PWM_Control(uint32_t control){
 }
 
 event_t events(){
+	debounceFSM_update();
 	event_t event_r=null_event;
 
 	if(ADC_data.dato_ready==true){
 		event_r=ADC_ready;
 	}
 
-	if(delayRead(&delay_mech) == ready_mode){
+	if(delayRead_2(&delay_mech) == ready_mode){
 		event_r=time_off;
 	}
 
-	if(!HAL_GPIO_ReadPin(THE_BUTTON)){			//niego porque tiene resistencia de pull-up (NC)
+	if(readKey()){			//niego porque tiene resistencia de pull-up (NC)
 		event_r=button;
 	}
 	return event_r;
@@ -381,6 +424,7 @@ void FSM(state_t *state,event_t evt){
 	switch(*state){
 		case wait:
 			if(evt==button){
+				HAL_Delay(3000);
 				SM_init(&delay_mech);
 				*state=write;
 			}
@@ -418,7 +462,7 @@ void action_read(void){
 
 void SM_init(delay_t * mechanic_delay){
 	PWM_Control(0);
-	delayInit(mechanic_delay, mechanic_tao);
+	delayInit_2(mechanic_delay, mechanic_tao);
 	HAL_ADC_Start_IT(&hadc1);
 }
 
@@ -429,19 +473,29 @@ void action_wait(void){
 
 /*Accion que se realiza cuando se transiciona al estado 'write'*/
 void action_write(uint32_t ADC_value,delay_t * mechanic_delay){
-	//mensaje(ADC_value);
-	delayDisable(&delay_mech);
+	message(ADC_value);
+	delayDisable_2(&delay_mech);
 	PWM_Control(ADC_value);
-	delayInit(mechanic_delay, mechanic_tao);
+	delayInit_2(mechanic_delay, mechanic_tao);
 }
 
 void wellcome(void){
-
+	SSD1306_Clear();
+	SSD1306_GotoXY(0, 10);
+	SSD1306_Puts("Presione el boton", &Font_7x10, SSD1306_COLOR_WHITE);
+	SSD1306_GotoXY(0, 30);
+	SSD1306_Puts("para continuar->", &Font_7x10, SSD1306_COLOR_WHITE);
+	SSD1306_UpdateScreen();
 }
 
-/*void message(uint32_t value){
-
-}*/
+void message(uint32_t value){
+	char angle[6];
+	sprintf(angle, "%d", value);
+	SSD1306_Clear();
+	SSD1306_GotoXY(0, 30);
+	SSD1306_Puts(angle, &Font_7x10, SSD1306_COLOR_WHITE);
+	SSD1306_UpdateScreen();
+}
 
 
 
