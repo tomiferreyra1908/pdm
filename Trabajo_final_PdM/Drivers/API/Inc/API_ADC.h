@@ -8,6 +8,12 @@
 #ifndef API_INC_API_ADC_H_
 #define API_INC_API_ADC_H_
 
+typedef struct{													//paquetes de datos
+	uint32_t ADC_value;
+	bool dato_ready;
+}dato_t;
+
+
 
 
 #endif /* API_INC_API_ADC_H_ */

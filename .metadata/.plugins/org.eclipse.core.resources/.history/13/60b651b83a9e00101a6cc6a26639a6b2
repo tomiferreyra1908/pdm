@@ -1,0 +1,15 @@
+/*
+ * API_Servo.h
+ *
+ *  Created on: Sep 30, 2025
+ *      Author: tomas1908
+ */
+
+#ifndef API_INC_API_SERVO_H_
+#define API_INC_API_SERVO_H_
+
+
+const float SCALE = 0.244;
+const uint32_t OFFSET=1000;
+
+#endif /* API_INC_API_SERVO_H_ */

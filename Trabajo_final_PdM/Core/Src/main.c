@@ -21,20 +21,12 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdbool.h>
-#include "fonts.h"
-#include "ssd1306.h"
+
 
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
-typedef struct{													//paquetes de datos
-	uint32_t ADC_value;
-	bool dato_ready;
-}dato_t;
-
 typedef enum{wait,read,write}state_t;							//estados de la SM
 typedef enum{null_event,button,time_off,ADC_ready}event_t;		//eventos
 
@@ -42,14 +34,12 @@ typedef enum{null_event,button,time_off,ADC_ready}event_t;		//eventos
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define THE_BUTTON GPIOC,GPIO_PIN_13
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 const tick_t mechanic_tao=300;
-const float SCALE = 0.244;
-const uint32_t OFFSET=1000;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -75,14 +65,11 @@ static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc);
-void PWM_Control(uint32_t control);
 event_t events();
 void FSM(state_t *state,event_t evt);
 void action_read(void);
 void action_write(uint32_t ADC_value,delay_t * mechanic_delay);
-void wellcome(void);
 void action_wait(void);
-void message(uint32_t value);
 void SM_init(delay_t * mechanic_delay);
 
 /* USER CODE END PFP */
@@ -129,7 +116,7 @@ int main(void)
   SSD1306_Init();
   //HAL_ADC_Start_IT(&hadc1);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
-  PWM_Control(20000);
+  PWM_Control(0);
   wellcome();
 
   state_t state_FSM=wait;
@@ -396,10 +383,6 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
   }
 }
 
-void PWM_Control(uint32_t control){
-	control = (control * SCALE) + OFFSET;
-	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, control);
-}
 
 event_t events(){
 	debounceFSM_update();
@@ -477,24 +460,6 @@ void action_write(uint32_t ADC_value,delay_t * mechanic_delay){
 	delayDisable_2(&delay_mech);
 	PWM_Control(ADC_value);
 	delayInit_2(mechanic_delay, mechanic_tao);
-}
-
-void wellcome(void){
-	SSD1306_Clear();
-	SSD1306_GotoXY(0, 10);
-	SSD1306_Puts("Presione el boton", &Font_7x10, SSD1306_COLOR_WHITE);
-	SSD1306_GotoXY(0, 30);
-	SSD1306_Puts("para continuar->", &Font_7x10, SSD1306_COLOR_WHITE);
-	SSD1306_UpdateScreen();
-}
-
-void message(uint32_t value){
-	char angle[6];
-	sprintf(angle, "%d", value);
-	SSD1306_Clear();
-	SSD1306_GotoXY(0, 30);
-	SSD1306_Puts(angle, &Font_7x10, SSD1306_COLOR_WHITE);
-	SSD1306_UpdateScreen();
 }
 
 
