@@ -9,6 +9,8 @@
 #include "API_Display.h"
 #include "stm32f4xx_hal.h"
 
+screen_t volatile screen=number;
+
 void wellcome(void){
 	SSD1306_Clear();
 	SSD1306_GotoXY(0, 10);
@@ -19,12 +21,33 @@ void wellcome(void){
 }
 
 void message(uint32_t value){
-	char angle[6];
-	value=(100*value)/4095;
-	sprintf(angle, "%d", (int)value);
-	SSD1306_Clear();
-	SSD1306_GotoXY(30, 20);
-	SSD1306_Puts(angle, &Font_16x26, SSD1306_COLOR_WHITE);
-	SSD1306_UpdateScreen();
+	if(screen==number){
+		char angle[8];
+		value=(100*value)/4095;
+		sprintf(angle,"%d",(int)value);
+		SSD1306_Clear();
+		SSD1306_GotoXY(30, 20);
+		SSD1306_Puts(angle, &Font_16x26, SSD1306_COLOR_WHITE);
+		SSD1306_UpdateScreen();
+	}
+	else{
+		SSD1306_Clear();
+		SSD1306_GotoXY(30, 20);
+		SSD1306_Puts("display2", &Font_7x10, SSD1306_COLOR_WHITE);
+		SSD1306_UpdateScreen();
+	}
 }
 
+void Display_Init(void){
+	SSD1306_Init();
+}
+
+
+void change_screen(uint8_t ctrl){
+	if(ctrl==0xA5){
+		screen=graphic;
+	}
+	else{
+		screen=number;
+	}
+}

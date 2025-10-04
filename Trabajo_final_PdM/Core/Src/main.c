@@ -49,10 +49,13 @@ I2C_HandleTypeDef hi2c1;
 
 TIM_HandleTypeDef htim3;
 
+UART_HandleTypeDef huart4;
+
 /* USER CODE BEGIN PV */
-volatile uint32_t adc_value_x=0;
-delay_t delay_mech;
-volatile dato_t ADC_data;
+
+delay_t delay_mech;					//Variable que se utiliza para tomar el retardo mecanico del servo
+volatile dato_t ADC_data;			//Variable que almacena el valor del ADC leido
+volatile uint8_t rxByte=0;
 
 /* USER CODE END PV */
 
@@ -62,15 +65,16 @@ static void MX_GPIO_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_I2C1_Init(void);
+static void MX_UART4_Init(void);
 /* USER CODE BEGIN PFP */
 
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc);
 event_t events();
 void FSM(state_t *state,event_t evt);
+void FSM_Init(void);
 void action_read(void);
-void action_write(uint32_t ADC_value,delay_t * mechanic_delay);
-void action_wait(void);
-void SM_init(delay_t * mechanic_delay);
+void action_write();
+void First_Write();
+void debugger_GPIO(state_t actual_state);
 
 /* USER CODE END PFP */
 
@@ -111,20 +115,17 @@ int main(void)
   MX_ADC1_Init();
   MX_TIM3_Init();
   MX_I2C1_Init();
+  MX_UART4_Init();
   /* USER CODE BEGIN 2 */
-  debounceFSM_init();
-  SSD1306_Init();
-  //HAL_ADC_Start_IT(&hadc1);
-  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
-  PWM_Control(0);
-  wellcome();
 
-  state_t state_FSM=wait;
-  event_t event_FSM;
+  /*Condiciones iniciales*/
+  state_t state_FSM=wait;					//Variable que registrara el estado actual de la SM. Se inicia en wait
+  event_t event_FSM=null_event;				//Variable que registrara los eventos que ocasionen un cambio de estado.
 
-  delay_mech.running=disable_mode;
-  ADC_data.dato_ready=false;
+  delay_mech.running=disable_mode;			//Se inicializa flag en 'disable'
+  ADC_data.dato_ready=false;				//Se inicializa flag en 'false'
 
+  FSM_Init();								//Inicializacion de la SM.
 
   /* USER CODE END 2 */
 
@@ -135,8 +136,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	event_FSM = events();
-	FSM(&state_FSM,event_FSM);
+	debounceFSM_update();					//Actualizo la SM de los pulsadores
+	event_FSM = events();					//Checkeo eventos
+	FSM(&state_FSM,event_FSM);				//Actualizo la SM del sistema
+	//debugger_GPIO(state_FSM);				//Descomentar para debuggear los estados instantaneos
 
   }
   /* USER CODE END 3 */
@@ -335,6 +338,39 @@ static void MX_TIM3_Init(void)
 }
 
 /**
+  * @brief UART4 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_UART4_Init(void)
+{
+
+  /* USER CODE BEGIN UART4_Init 0 */
+
+  /* USER CODE END UART4_Init 0 */
+
+  /* USER CODE BEGIN UART4_Init 1 */
+
+  /* USER CODE END UART4_Init 1 */
+  huart4.Instance = UART4;
+  huart4.Init.BaudRate = 115200;
+  huart4.Init.WordLength = UART_WORDLENGTH_8B;
+  huart4.Init.StopBits = UART_STOPBITS_1;
+  huart4.Init.Parity = UART_PARITY_NONE;
+  huart4.Init.Mode = UART_MODE_TX_RX;
+  huart4.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart4.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN UART4_Init 2 */
+
+  /* USER CODE END UART4_Init 2 */
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -355,6 +391,9 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5, GPIO_PIN_RESET);
+
   /*Configure GPIO pin : PC13 */
   GPIO_InitStruct.Pin = GPIO_PIN_13;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
@@ -368,6 +407,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+  /*Configure GPIO pins : PB3 PB4 PB5 */
+  GPIO_InitStruct.Pin = GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
   /* USER CODE END MX_GPIO_Init_2 */
@@ -375,50 +421,66 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
-  if (hadc->Instance == ADC1){
-	  HAL_ADC_Stop_IT(&hadc1);
-	  adc_value_x = HAL_ADC_GetValue(hadc);
-	  ADC_data.dato_ready=true;
-  }
-}
 
+/*
+ * Funcion para checkear eventos
+ * No lleva parametros
+ * Devuelve el evento del tipo event_t
+ * */
+event_t events(void){
+	event_t event_r=null_event;						//En caso de no registrar eventos: devuelve 'null_event'
 
-event_t events(){
-	debounceFSM_update();
-	event_t event_r=null_event;
-
-	if(ADC_data.dato_ready==true){
+	if(ADC_data.dato_ready==true){					//Si el flag esta en 'true' significa que hay un dato disponible para ser leido
 		event_r=ADC_ready;
 	}
 
-	if(delayRead_2(&delay_mech) == ready_mode){
+	if(delayRead_2(&delay_mech) == ready_mode){		//Si el flag es 'ready_mode' significa que termino el NB-delay
 		event_r=time_off;
 	}
 
-	if(readKey()){			//niego porque tiene resistencia de pull-up (NC)
-		event_r=button;
+	if(readKey()){									//Si se preciona el pulsador el evento es 'button'
+		event_r=button;								//Se encuentra ultimo por mayor prioridad
 	}
+
 	return event_r;
 }
 
-/*Funcion para la maquina de estados*/
+/*
+ * Funcion para inicializar la SM
+ * No lleva parametros
+ * No retorna un valor
+ * */
+void FSM_Init(void){
+	UART_Rx_IT();				//Inicializacion de recepcion UART para comandos de config
+	debounceFSM_init();			//Inicializacion de la SM del pulsador
+	Display_Init();				//Inicializacion del Display
+	PWM_Init();					//Inicializacion de la señal PWM que controla el servo
+	PWM_Control(0);				//Estado inicial del servomotor ~0 grados.
+	wellcome();					//Mensaje de inicio del Display
+}
+
+
+/*
+ * Funcion para actualiza los estados de la SM
+ * Como parametros recibe la direccion de memoria de la variable que almacena el estado actual  de SM y el evento
+ * No retorna  un valor
+ * */
 void FSM(state_t *state,event_t evt){
 	switch(*state){
 		case wait:
 			if(evt==button){
-				HAL_Delay(3000);
-				SM_init(&delay_mech);
+				Blocking_Delay(3000);
+				First_Write(&delay_mech);
 				*state=write;
 			}
 			break;
 		case read:
 			if(evt==time_off){
-				action_write(adc_value_x, &delay_mech);
+				action_write();
 				*state=write;
 			}
 			if(evt==button){
-				action_wait();
+				wellcome();
 				*state=wait;
 			}
 			break;
@@ -428,7 +490,7 @@ void FSM(state_t *state,event_t evt){
 				*state=read;
 			}
 			if(evt==button){
-				action_wait();
+				wellcome();
 				*state=wait;
 			}
 			break;
@@ -440,35 +502,49 @@ void FSM(state_t *state,event_t evt){
 /*Accion que se realiza cuando se transiciona al estado 'read'*/
 void action_read(void){
 	ADC_data.dato_ready=false;
-	HAL_ADC_Start_IT(&hadc1);
+	ADC_Start();
 }
 
-void SM_init(delay_t * mechanic_delay){
+void First_Write(){
 	PWM_Control(0);
-	delayInit_2(mechanic_delay, mechanic_tao);
-	HAL_ADC_Start_IT(&hadc1);
-}
-
-/*Accion que se realiza cuando se transiciona al estado 'wait'*/
-void action_wait(void){
-	wellcome();
+	delayInit_2(&delay_mech, mechanic_tao);
+	ADC_Start();
 }
 
 /*Accion que se realiza cuando se transiciona al estado 'write'*/
-void action_write(uint32_t ADC_value,delay_t * mechanic_delay){
-	message(ADC_value);
+void action_write(){
+	message(ADC_data.ADC_value);
 	delayDisable_2(&delay_mech);
-	PWM_Control(ADC_value);
-	delayInit_2(mechanic_delay, mechanic_tao);
+	PWM_Control(ADC_data.ADC_value);
+	delayInit_2(&delay_mech, mechanic_tao);
+	UART_Tx(ADC_data.ADC_value);
 }
 
-
+void debugger_GPIO(state_t actual_state){
+	switch(actual_state){
+		case wait:
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, 1);
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, 0);
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, 0);
+			break;
+		case write:
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, 0);
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, 1);
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, 0);
+			break;
+		case read:
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, 0);
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, 0);
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, 1);
+			break;
+	}
+}
 
 
 /* USER CODE END 4 */
 
 /**
-  * @brief  This function is executed in case of error occurrence.
+  * @brief  This function is executed in case of error occurrence.FSM_Init
   * @retval None
   */
 void Error_Handler(void)

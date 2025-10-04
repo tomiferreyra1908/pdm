@@ -12,7 +12,7 @@
 #include <stdint.h>
 
 uint32_t get_tick();
-
+void Blocking_Delay(uint32_t time_delay);
 
 
 #endif /* API_INC_API_DELAY_TF_PORT_H_ */

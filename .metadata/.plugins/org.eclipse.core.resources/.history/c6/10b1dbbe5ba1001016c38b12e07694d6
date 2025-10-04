@@ -1,0 +1,15 @@
+/*
+ * API_UART.c
+ *
+ *  Created on: Oct 4, 2025
+ *      Author: tomas1908
+ */
+
+#include "API_UART.h"
+#include "stm32f4xx_hal.h"
+
+extern UART_HandleTypeDef huart4;
+
+void UART_Tx(uint32_t data_tx){
+	HAL_UART_Transmit(&huart4, (uint8_t*)&data_tx, sizeof(uint32_t),HAL_MAX_DELAY);
+}

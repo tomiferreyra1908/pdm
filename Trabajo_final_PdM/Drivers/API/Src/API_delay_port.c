@@ -12,3 +12,6 @@ uint32_t get_tick(){
 	return HAL_GetTick();
 }
 
+void Blocking_Delay(uint32_t time_delay){
+	HAL_Delay(time_delay);
+}

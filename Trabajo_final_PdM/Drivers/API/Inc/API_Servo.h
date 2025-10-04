@@ -15,5 +15,6 @@
 #define OFFSET 1000
 
 void PWM_Control(uint32_t control);
+void PWM_Init(void);
 
 #endif /* API_INC_API_SERVO_H_ */

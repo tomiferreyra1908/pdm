@@ -1,1 +1,2 @@
 ../Drivers/API/Src/API_delay_port.c:11:10:get_tick	8	static
+../Drivers/API/Src/API_delay_port.c:15:6:Blocking_Delay	16	static

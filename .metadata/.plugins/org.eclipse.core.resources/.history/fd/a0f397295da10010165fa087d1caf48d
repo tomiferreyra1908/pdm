@@ -1,0 +1,20 @@
+/*
+ * API_UART.h
+ *
+ *  Created on: Oct 4, 2025
+ *      Author: tomas1908
+ */
+
+#ifndef API_INC_API_UART_H_
+#define API_INC_API_UART_H_
+
+#include <stdbool.h>
+#include <stdint.h>
+#include "stm32f4xx_hal.h"
+
+
+void UART_Tx(uint32_t data_tx);
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
+
+
+#endif /* API_INC_API_UART_H_ */

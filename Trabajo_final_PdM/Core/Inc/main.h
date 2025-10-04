@@ -37,6 +37,7 @@ extern "C" {
 #include "API_debounce.h"
 #include "API_ADC.h"
 #include "API_Servo.h"
+#include "API_UART.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

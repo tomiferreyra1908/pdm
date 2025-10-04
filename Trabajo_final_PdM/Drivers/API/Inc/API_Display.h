@@ -14,8 +14,10 @@
 #include "fonts.h"
 #include "stdio.h"
 
+typedef enum{number,graphic}screen_t;
 
 void wellcome(void);
 void message(uint32_t value);
+void Display_Init(void);
 
 #endif /* API_INC_API_DISPLAY_H_ */

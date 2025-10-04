@@ -23,11 +23,8 @@ typedef struct{
 
 
 void delayInit( delay_t * delay, tick_t duration );
-
 bool delayRead( delay_t * delay );
-
 void delayWrite( delay_t * delay, tick_t duration );
-
 void delayInit_2( delay_t * delay, tick_t duration );
 mode_t delayRead_2( delay_t * delay );
 void delayDisable_2(delay_t * delay);

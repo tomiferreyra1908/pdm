@@ -33,6 +33,7 @@ Drivers/API/Src/API_Display.o: ../Drivers/API/Src/API_Display.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/fonts.h
 /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/API_Display.h:
 /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/ssd1306.h:
@@ -68,4 +69,5 @@ Drivers/API/Src/API_Display.o: ../Drivers/API/Src/API_Display.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/fonts.h:
