@@ -19,5 +19,7 @@ typedef enum{number,graphic}screen_t;
 void wellcome(void);
 void message(uint32_t value);
 void Display_Init(void);
+void change_screen(uint8_t ctrl);
+
 
 #endif /* API_INC_API_DISPLAY_H_ */

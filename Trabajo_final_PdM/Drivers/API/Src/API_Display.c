@@ -7,7 +7,7 @@
 
 
 #include "API_Display.h"
-#include "stm32f4xx_hal.h"
+#include <math.h>
 
 screen_t volatile screen=number;
 
@@ -21,9 +21,12 @@ void wellcome(void){
 }
 
 void message(uint32_t value){
-	if(screen==number){
+	value=(180*value)/4095;
+	uint32_t x_end=0;
+	uint32_t y_end=0;
+	double result;
+	if(screen==graphic){
 		char angle[8];
-		value=(100*value)/4095;
 		sprintf(angle,"%d",(int)value);
 		SSD1306_Clear();
 		SSD1306_GotoXY(30, 20);
@@ -31,9 +34,30 @@ void message(uint32_t value){
 		SSD1306_UpdateScreen();
 	}
 	else{
+		if(value<45){
+			x_end=0;
+			result=64-(64*tan((value*3.1416)/180));
+			y_end=(uint32_t)result;
+		}
+
+		if(45<=value && value<=90){
+			y_end=0;
+			result=64*tan(((value-45)*3.1416)/180);
+			x_end=(uint32_t)result;
+		}
+
+		if(90<value && value<=135){
+			y_end=0;
+			result=(64*tan(((value-90)*3.1416)/180))+64;
+			x_end=(uint32_t)result;
+		}
+		if(value>135){
+			x_end=128;
+			result=64*tan(((value-135)*3.1416)/180);
+			y_end=(uint32_t)result;
+		}
 		SSD1306_Clear();
-		SSD1306_GotoXY(30, 20);
-		SSD1306_Puts("display2", &Font_7x10, SSD1306_COLOR_WHITE);
+		SSD1306_DrawLine(64,64,x_end,y_end,SSD1306_COLOR_WHITE);
 		SSD1306_UpdateScreen();
 	}
 }
@@ -51,3 +75,6 @@ void change_screen(uint8_t ctrl){
 		screen=number;
 	}
 }
+
+
+

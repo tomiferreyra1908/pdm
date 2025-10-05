@@ -10,6 +10,7 @@
 
 #include <stdbool.h>
 #include <stdint.h>
+#include "API_Servo_port.h"
 
 #define SCALE 0.244
 #define OFFSET 1000

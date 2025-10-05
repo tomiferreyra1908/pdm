@@ -1,0 +1,15 @@
+/*
+ * API_debounce_port.h
+ *
+ *  Created on: Oct 4, 2025
+ *      Author: tomas1908
+ */
+
+#ifndef API_INC_API_DEBOUNCE_PORT_H_
+#define API_INC_API_DEBOUNCE_PORT_H_
+
+#include <stdint.h>
+
+uint32_t Read_Blue_Button();
+
+#endif /* API_INC_API_DEBOUNCE_PORT_H_ */

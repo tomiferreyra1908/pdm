@@ -5,9 +5,9 @@
  *      Author: tomas1908
  */
 
-#include <API_delay.h>
+#include "API_delay.h"
+#include "API_debounce_port.h"
 #include "API_debounce.h"
-#include "stm32f4xx_hal.h"
 
 const tick_t no_noise=40;
 debounceState_t state;
@@ -21,18 +21,18 @@ void debounceFSM_init(){
 
 
 void debounceFSM_update(){
-	uint32_t Button_state=HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
+	uint32_t Button_state=Read_Blue_Button();
 
 	switch(state){
 		case BUTTON_UP:
-			if(Button_state==GPIO_PIN_RESET){
+			if(Button_state==0){
 				delayInit(&NB_delay,no_noise);
 				state=BUTTON_FALLING;
 			}
 			break;
 
 		case BUTTON_DOWN:
-			if(Button_state==GPIO_PIN_SET){
+			if(Button_state==1){
 				delayInit(&NB_delay,no_noise);
 				state=BUTTON_RAISING;
 			}
@@ -40,7 +40,7 @@ void debounceFSM_update(){
 
 		case BUTTON_FALLING:
 			if(!delayRead(&NB_delay)){
-				if(Button_state==GPIO_PIN_RESET){
+				if(Button_state==0){
 					buttonPressed();
 					state=BUTTON_DOWN;
 				}
@@ -53,7 +53,7 @@ void debounceFSM_update(){
 
 		case BUTTON_RAISING:
 			if(!delayRead(&NB_delay)){
-				if(Button_state==GPIO_PIN_SET){
+				if(Button_state==1){
 					buttonReleased();
 					state=BUTTON_UP;
 				}

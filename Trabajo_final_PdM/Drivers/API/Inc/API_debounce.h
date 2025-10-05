@@ -15,7 +15,7 @@ typedef enum{
 	BUTTON_UP,
 	BUTTON_FALLING,
 	BUTTON_DOWN,
-	BUTTON_RAISING,
+	BUTTON_RAISING
 } debounceState_t;
 
 void debounceFSM_init();			// debe cargar el estado inicial
