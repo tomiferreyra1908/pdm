@@ -11,7 +11,7 @@
 #ifndef API_INC_API_DEBOUNCE_H_
 #define API_INC_API_DEBOUNCE_H_
 
-typedef enum{
+typedef enum{						//Estados del pulsador
 	BUTTON_UP,
 	BUTTON_FALLING,
 	BUTTON_DOWN,

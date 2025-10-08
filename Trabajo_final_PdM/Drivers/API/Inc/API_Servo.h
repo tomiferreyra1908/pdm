@@ -12,7 +12,7 @@
 #include <stdint.h>
 #include "API_Servo_port.h"
 
-#define SCALE 0.244
+#define SCALE 0.244							//Ajuste lineal entre los valores del ADC y la PWM
 #define OFFSET 1000
 
 void PWM_Control(uint32_t control);

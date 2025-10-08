@@ -1,10 +1,10 @@
-20:11:34 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+20:55:51 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
 make -j8 all 
 arm-none-eabi-size  Trabajo_final_PdM.elf 
    text	   data	    bss	    dec	    hex	filename
-  42276	    108	   3276	  45660	   b25c	Trabajo_final_PdM.elf
+  42300	    108	   3276	  45684	   b274	Trabajo_final_PdM.elf
 Finished building: default.size.stdout
  
 
-20:11:34 Build Finished. 0 errors, 0 warnings. (took 141ms)
+20:55:51 Build Finished. 0 errors, 0 warnings. (took 120ms)
 

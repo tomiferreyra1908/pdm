@@ -5,39 +5,42 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Drivers/API/Src/API_ADC.c \
+../Drivers/API/Src/API_ADC_port.c \
 ../Drivers/API/Src/API_Display.c \
 ../Drivers/API/Src/API_Servo.c \
 ../Drivers/API/Src/API_Servo_port.c \
-../Drivers/API/Src/API_UART.c \
+../Drivers/API/Src/API_UART_port.c \
 ../Drivers/API/Src/API_debounce.c \
 ../Drivers/API/Src/API_debounce_port.c \
+../Drivers/API/Src/API_debug_port.c \
 ../Drivers/API/Src/API_delay.c \
 ../Drivers/API/Src/API_delay_port.c \
 ../Drivers/API/Src/fonts.c \
 ../Drivers/API/Src/ssd1306.c 
 
 OBJS += \
-./Drivers/API/Src/API_ADC.o \
+./Drivers/API/Src/API_ADC_port.o \
 ./Drivers/API/Src/API_Display.o \
 ./Drivers/API/Src/API_Servo.o \
 ./Drivers/API/Src/API_Servo_port.o \
-./Drivers/API/Src/API_UART.o \
+./Drivers/API/Src/API_UART_port.o \
 ./Drivers/API/Src/API_debounce.o \
 ./Drivers/API/Src/API_debounce_port.o \
+./Drivers/API/Src/API_debug_port.o \
 ./Drivers/API/Src/API_delay.o \
 ./Drivers/API/Src/API_delay_port.o \
 ./Drivers/API/Src/fonts.o \
 ./Drivers/API/Src/ssd1306.o 
 
 C_DEPS += \
-./Drivers/API/Src/API_ADC.d \
+./Drivers/API/Src/API_ADC_port.d \
 ./Drivers/API/Src/API_Display.d \
 ./Drivers/API/Src/API_Servo.d \
 ./Drivers/API/Src/API_Servo_port.d \
-./Drivers/API/Src/API_UART.d \
+./Drivers/API/Src/API_UART_port.d \
 ./Drivers/API/Src/API_debounce.d \
 ./Drivers/API/Src/API_debounce_port.d \
+./Drivers/API/Src/API_debug_port.d \
 ./Drivers/API/Src/API_delay.d \
 ./Drivers/API/Src/API_delay_port.d \
 ./Drivers/API/Src/fonts.d \
@@ -51,7 +54,7 @@ Drivers/API/Src/%.o Drivers/API/Src/%.su Drivers/API/Src/%.cyclo: ../Drivers/API
 clean: clean-Drivers-2f-API-2f-Src
 
 clean-Drivers-2f-API-2f-Src:
-	-$(RM) ./Drivers/API/Src/API_ADC.cyclo ./Drivers/API/Src/API_ADC.d ./Drivers/API/Src/API_ADC.o ./Drivers/API/Src/API_ADC.su ./Drivers/API/Src/API_Display.cyclo ./Drivers/API/Src/API_Display.d ./Drivers/API/Src/API_Display.o ./Drivers/API/Src/API_Display.su ./Drivers/API/Src/API_Servo.cyclo ./Drivers/API/Src/API_Servo.d ./Drivers/API/Src/API_Servo.o ./Drivers/API/Src/API_Servo.su ./Drivers/API/Src/API_Servo_port.cyclo ./Drivers/API/Src/API_Servo_port.d ./Drivers/API/Src/API_Servo_port.o ./Drivers/API/Src/API_Servo_port.su ./Drivers/API/Src/API_UART.cyclo ./Drivers/API/Src/API_UART.d ./Drivers/API/Src/API_UART.o ./Drivers/API/Src/API_UART.su ./Drivers/API/Src/API_debounce.cyclo ./Drivers/API/Src/API_debounce.d ./Drivers/API/Src/API_debounce.o ./Drivers/API/Src/API_debounce.su ./Drivers/API/Src/API_debounce_port.cyclo ./Drivers/API/Src/API_debounce_port.d ./Drivers/API/Src/API_debounce_port.o ./Drivers/API/Src/API_debounce_port.su ./Drivers/API/Src/API_delay.cyclo ./Drivers/API/Src/API_delay.d ./Drivers/API/Src/API_delay.o ./Drivers/API/Src/API_delay.su ./Drivers/API/Src/API_delay_port.cyclo ./Drivers/API/Src/API_delay_port.d ./Drivers/API/Src/API_delay_port.o ./Drivers/API/Src/API_delay_port.su ./Drivers/API/Src/fonts.cyclo ./Drivers/API/Src/fonts.d ./Drivers/API/Src/fonts.o ./Drivers/API/Src/fonts.su ./Drivers/API/Src/ssd1306.cyclo ./Drivers/API/Src/ssd1306.d ./Drivers/API/Src/ssd1306.o ./Drivers/API/Src/ssd1306.su
+	-$(RM) ./Drivers/API/Src/API_ADC_port.cyclo ./Drivers/API/Src/API_ADC_port.d ./Drivers/API/Src/API_ADC_port.o ./Drivers/API/Src/API_ADC_port.su ./Drivers/API/Src/API_Display.cyclo ./Drivers/API/Src/API_Display.d ./Drivers/API/Src/API_Display.o ./Drivers/API/Src/API_Display.su ./Drivers/API/Src/API_Servo.cyclo ./Drivers/API/Src/API_Servo.d ./Drivers/API/Src/API_Servo.o ./Drivers/API/Src/API_Servo.su ./Drivers/API/Src/API_Servo_port.cyclo ./Drivers/API/Src/API_Servo_port.d ./Drivers/API/Src/API_Servo_port.o ./Drivers/API/Src/API_Servo_port.su ./Drivers/API/Src/API_UART_port.cyclo ./Drivers/API/Src/API_UART_port.d ./Drivers/API/Src/API_UART_port.o ./Drivers/API/Src/API_UART_port.su ./Drivers/API/Src/API_debounce.cyclo ./Drivers/API/Src/API_debounce.d ./Drivers/API/Src/API_debounce.o ./Drivers/API/Src/API_debounce.su ./Drivers/API/Src/API_debounce_port.cyclo ./Drivers/API/Src/API_debounce_port.d ./Drivers/API/Src/API_debounce_port.o ./Drivers/API/Src/API_debounce_port.su ./Drivers/API/Src/API_debug_port.cyclo ./Drivers/API/Src/API_debug_port.d ./Drivers/API/Src/API_debug_port.o ./Drivers/API/Src/API_debug_port.su ./Drivers/API/Src/API_delay.cyclo ./Drivers/API/Src/API_delay.d ./Drivers/API/Src/API_delay.o ./Drivers/API/Src/API_delay.su ./Drivers/API/Src/API_delay_port.cyclo ./Drivers/API/Src/API_delay_port.d ./Drivers/API/Src/API_delay_port.o ./Drivers/API/Src/API_delay_port.su ./Drivers/API/Src/fonts.cyclo ./Drivers/API/Src/fonts.d ./Drivers/API/Src/fonts.o ./Drivers/API/Src/fonts.su ./Drivers/API/Src/ssd1306.cyclo ./Drivers/API/Src/ssd1306.d ./Drivers/API/Src/ssd1306.o ./Drivers/API/Src/ssd1306.su
 
 .PHONY: clean-Drivers-2f-API-2f-Src
 

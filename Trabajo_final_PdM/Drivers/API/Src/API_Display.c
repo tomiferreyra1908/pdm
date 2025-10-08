@@ -25,7 +25,7 @@ void message(uint32_t value){
 	uint32_t x_end=0;
 	uint32_t y_end=0;
 	double result;
-	if(screen==graphic){
+	if(screen==number){
 		char angle[8];
 		sprintf(angle,"%d",(int)value);
 		SSD1306_Clear();

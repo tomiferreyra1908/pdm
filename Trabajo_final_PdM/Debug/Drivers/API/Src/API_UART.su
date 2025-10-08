@@ -1,3 +1,0 @@
-../Drivers/API/Src/API_UART.c:14:6:UART_Tx	16	static
-../Drivers/API/Src/API_UART.c:19:6:UART_Rx_IT	8	static
-../Drivers/API/Src/API_UART.c:23:6:HAL_UART_RxCpltCallback	16	static

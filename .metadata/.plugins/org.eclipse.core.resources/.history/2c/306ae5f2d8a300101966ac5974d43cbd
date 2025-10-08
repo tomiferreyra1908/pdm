@@ -1,0 +1,25 @@
+/*
+ * API_ADC.c
+ *
+ *  Created on: Sep 16, 2025
+ *      Author: tomas1908
+ */
+
+
+#include <API_ADC_port.h>
+#include "stm32f4xx_hal.h"
+
+extern ADC_HandleTypeDef hadc1;
+extern volatile dato_t ADC_data;
+
+void ADC_Start(void){
+	HAL_ADC_Start_IT(&hadc1);
+}
+
+void ADC_Stop(void){
+	HAL_ADC_Stop_IT(&hadc1);
+}
+uint32_t get_ADC_value(void){
+	uint32_t adc_val = HAL_ADC_GetValue(hadc);
+	return adc_val;
+}

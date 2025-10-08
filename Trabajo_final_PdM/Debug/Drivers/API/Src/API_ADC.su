@@ -1,3 +1,0 @@
-../Drivers/API/Src/API_ADC.c:15:6:ADC_Start	8	static
-../Drivers/API/Src/API_ADC.c:19:6:ADC_Stop	8	static
-../Drivers/API/Src/API_ADC.c:23:6:HAL_ADC_ConvCpltCallback	16	static

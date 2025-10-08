@@ -22,14 +22,12 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 typedef enum{wait,read,write}state_t;							//estados de la SM
 typedef enum{null_event,button,time_off,ADC_ready}event_t;		//eventos
-
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -39,7 +37,9 @@ typedef enum{null_event,button,time_off,ADC_ready}event_t;		//eventos
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
+
 const tick_t mechanic_tao=300;
+
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -74,7 +74,6 @@ void FSM_Init(void);
 void action_read(void);
 void action_write();
 void First_Write();
-void debugger_GPIO(state_t actual_state);
 
 /* USER CODE END PFP */
 
@@ -139,7 +138,7 @@ int main(void)
 	debounceFSM_update();					//Actualizo la SM de los pulsadores
 	event_FSM = events();					//Checkeo eventos
 	FSM(&state_FSM,event_FSM);				//Actualizo la SM del sistema
-	//debugger_GPIO(state_FSM);				//Descomentar para debuggear los estados instantaneos
+	//debugger_GPIO((uint32_t)state_FSM);	//Descomentar para debuggear los estados instantaneos
 
   }
   /* USER CODE END 3 */
@@ -469,7 +468,6 @@ void FSM(state_t *state,event_t evt){
 	switch(*state){
 		case wait:
 			if(evt==button){
-				Blocking_Delay(3000);
 				First_Write(&delay_mech);
 				*state=write;
 			}
@@ -499,47 +497,66 @@ void FSM(state_t *state,event_t evt){
 	}
 }
 
-/*Accion que se realiza cuando se transiciona al estado 'read'*/
+/*Accion que se realiza cuando se transiciona al estado 'read'
+ * No lleva parametros
+ * No retorna  un valor
+ * */
 void action_read(void){
-	ADC_data.dato_ready=false;
-	ADC_Start();
+	ADC_data.dato_ready=false;			//Se reinicia el flag en false
+	ADC_Start();						//Se reinicia la lectura del ADC.
 }
 
+
+/*Accion que se realiza cuando se transiciona al estado 'write' por primera vez
+ * No lleva parametros
+ * No retorna  un valor
+ * */
 void First_Write(){
-	PWM_Control(0);
-	delayInit_2(&delay_mech, mechanic_tao);
-	ADC_Start();
+	Blocking_Delay(3000);						//Se realiza un delay bloqueante para sincronizar la SM
+	delayInit_2(&delay_mech, mechanic_tao);		//Se inicializa el primer NB-delay
+	ADC_Start();								//Se incializa el ADC para que haya un evento luego del NBD
 }
 
-/*Accion que se realiza cuando se transiciona al estado 'write'*/
+
+/*Accion que se realiza cuando se transiciona al estado 'write'
+ * No lleva parametros
+ * No retorna  un valor
+ * */
 void action_write(){
-	message(ADC_data.ADC_value);
-	delayDisable_2(&delay_mech);
-	PWM_Control(ADC_data.ADC_value);
-	delayInit_2(&delay_mech, mechanic_tao);
-	UART_Tx(ADC_data.ADC_value);
+	message(ADC_data.ADC_value);				//Se envia el valor de ADC leido al OLED
+	delayDisable_2(&delay_mech);				//Se finaliza el delay mecanico
+	PWM_Control(ADC_data.ADC_value);			//Se actualiza el angulo del servomotor
+	delayInit_2(&delay_mech, mechanic_tao);		//Se reinicia el delay mecanico
+	UART_Tx(ADC_data.ADC_value);				//Se envia el valor del nuevo angulo
 }
 
-void debugger_GPIO(state_t actual_state){
-	switch(actual_state){
-		case wait:
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, 1);
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, 0);
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, 0);
-			break;
-		case write:
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, 0);
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, 1);
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, 0);
-			break;
-		case read:
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, 0);
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, 0);
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, 1);
-			break;
+
+
+/*Callback del ADC
+ * Esta funcion se ejecuta cada vez que el ADC realice una interrupcion
+ * El parametro es el handle correspondiente al ADC1
+ * No retorna  un valor
+ * */
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
+  if (hadc->Instance == ADC1){
+	  ADC_Stop();									//Se detiene la interrupcion por ADC
+	  ADC_data.ADC_value = get_ADC_value();			//Se actualiza el valor del ADC
+	  ADC_data.dato_ready=true;						//Se prende el flag de un nuevo valor del ADC
+  }
+}
+
+
+/*Callback de la UART
+ * Esta funcion se ejecuta cada vez que la UART realice una interrupcion
+ * El parametro es el handle correspondiente a la UART4
+ * No retorna  un valor
+ * */
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
+	if (huart->Instance == UART4){
+		change_screen(rxByte);			//Se realiza el cambio de display si es que el comando corresponde
+		UART_Rx_IT();					//Se vuelve a inicializar la interrupcion por UART
 	}
 }
-
 
 /* USER CODE END 4 */
 
