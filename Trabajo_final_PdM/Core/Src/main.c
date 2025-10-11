@@ -532,32 +532,6 @@ void action_write(){
 
 
 
-/*Callback del ADC
- * Esta funcion se ejecuta cada vez que el ADC realice una interrupcion
- * El parametro es el handle correspondiente al ADC1
- * No retorna  un valor
- * */
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
-  if (hadc->Instance == ADC1){
-	  ADC_Stop();									//Se detiene la interrupcion por ADC
-	  ADC_data.ADC_value = get_ADC_value();			//Se actualiza el valor del ADC
-	  ADC_data.dato_ready=true;						//Se prende el flag de un nuevo valor del ADC
-  }
-}
-
-
-/*Callback de la UART
- * Esta funcion se ejecuta cada vez que la UART realice una interrupcion
- * El parametro es el handle correspondiente a la UART4
- * No retorna  un valor
- * */
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
-	if (huart->Instance == UART4){
-		change_screen(rxByte);			//Se realiza el cambio de display si es que el comando corresponde
-		UART_Rx_IT();					//Se vuelve a inicializar la interrupcion por UART
-	}
-}
-
 /* USER CODE END 4 */
 
 /**

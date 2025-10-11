@@ -8,18 +8,33 @@
 
 #include <API_ADC_port.h>
 #include "stm32f4xx_hal.h"
+#include "Error_Management.h"
 
 extern ADC_HandleTypeDef hadc1;
 extern volatile dato_t ADC_data;
 
 void ADC_Start(void){
-	HAL_ADC_Start_IT(&hadc1);
+	HAL_StatusTypeDef ans=HAL_ADC_Start_IT(&hadc1);
+	if(ans==HAL_ERROR){
+		System_Error_Handler();
+	}
 }
 
 void ADC_Stop(void){
-	HAL_ADC_Stop_IT(&hadc1);
+	HAL_StatusTypeDef ans=HAL_ADC_Stop_IT(&hadc1);
+	if(ans==HAL_ERROR){
+		System_Error_Handler();
+	}
 }
 uint32_t get_ADC_value(void){
-	uint32_t adc_val = HAL_ADC_GetValue(&hadc1);
-	return adc_val;
+	return HAL_ADC_GetValue(&hadc1);
+}
+
+
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
+  if (hadc->Instance == ADC1){
+	  ADC_Stop();									//Se detiene la interrupcion por ADC
+	  ADC_data.ADC_value = get_ADC_value();			//Se actualiza el valor del ADC
+	  ADC_data.dato_ready=true;						//Se prende el flag de un nuevo valor del ADC
+  }
 }

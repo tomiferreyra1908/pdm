@@ -13,6 +13,9 @@
 #include "ssd1306.h"
 #include "fonts.h"
 #include "stdio.h"
+#include "Error_Management.h"
+
+#define PASSWORD 0xA5
 
 typedef enum{number,graphic}screen_t;
 

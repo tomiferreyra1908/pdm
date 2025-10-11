@@ -9,7 +9,8 @@
 #include "API_Display.h"
 #include <math.h>
 
-screen_t volatile screen=number;
+static volatile screen_t screen=number;
+static const float conv=0.043956044;					//conv=180/4095=0.04 -> Conversion de letura de ADC a grados
 
 void wellcome(void){
 	SSD1306_Clear();
@@ -21,7 +22,7 @@ void wellcome(void){
 }
 
 void message(uint32_t value){
-	value=(180*value)/4095;
+	value=conv*value;
 	uint32_t x_end=0;
 	uint32_t y_end=0;
 	double result;
@@ -63,12 +64,15 @@ void message(uint32_t value){
 }
 
 void Display_Init(void){
-	SSD1306_Init();
+	uint8_t ans=SSD1306_Init();
+	if(!ans){
+		System_Error_Handler();
+	}
 }
 
 
 void change_screen(uint8_t ctrl){
-	if(ctrl==0xA5){
+	if(ctrl==PASSWORD){
 		screen=graphic;
 	}
 	else{

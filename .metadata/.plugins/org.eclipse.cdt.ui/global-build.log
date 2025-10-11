@@ -1858,3 +1858,434 @@ arm-none-eabi-size  Trabajo_final_PdM.elf
   42300	    108	   3276	  45684	   b274	Trabajo_final_PdM.elf
 Finished building: default.size.stdout
  
+20:51:54 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_ADC_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_ADC_port.d" -MT"Drivers/API/Src/API_ADC_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_ADC_port.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_UART_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_UART_port.d" -MT"Drivers/API/Src/API_UART_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_UART_port.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Drivers/API/Src/API_UART_port.c: In function 'UART_Rx_IT':
+../Drivers/API/Src/API_UART_port.c:20:38: warning: passing argument 2 of 'HAL_UART_Receive_IT' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+   20 |         HAL_UART_Receive_IT(&huart4, &rxByte, 1);
+      |                                      ^~~~~~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/API_UART_port.h:13,
+                 from ../Drivers/API/Src/API_UART_port.c:8:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:748:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile uint8_t *' {aka 'volatile unsigned char *'}
+  748 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Trabajo_final_PdM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Trabajo_final_PdM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Trabajo_final_PdM.elf
+ 
+arm-none-eabi-size  Trabajo_final_PdM.elf 
+arm-none-eabi-objdump -h -S Trabajo_final_PdM.elf  > "Trabajo_final_PdM.list"
+   text	   data	    bss	    dec	    hex	filename
+  42300	    108	   3276	  45684	   b274	Trabajo_final_PdM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Trabajo_final_PdM.list
+ 
+20:54:09 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-size  Trabajo_final_PdM.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42300	    108	   3276	  45684	   b274	Trabajo_final_PdM.elf
+Finished building: default.size.stdout
+ 
+09:37:13 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_Display.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_Display.d" -MT"Drivers/API/Src/API_Display.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_Display.o"
+arm-none-eabi-gcc -o "Trabajo_final_PdM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Trabajo_final_PdM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Trabajo_final_PdM.elf
+ 
+arm-none-eabi-size  Trabajo_final_PdM.elf 
+arm-none-eabi-objdump -h -S Trabajo_final_PdM.elf  > "Trabajo_final_PdM.list"
+   text	   data	    bss	    dec	    hex	filename
+  42300	    108	   3276	  45684	   b274	Trabajo_final_PdM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Trabajo_final_PdM.list
+ 
+13:17:09 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_ADC_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_ADC_port.d" -MT"Drivers/API/Src/API_ADC_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_ADC_port.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_Display.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_Display.d" -MT"Drivers/API/Src/API_Display.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_Display.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_Servo.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_Servo.d" -MT"Drivers/API/Src/API_Servo.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_Servo.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_Servo_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_Servo_port.d" -MT"Drivers/API/Src/API_Servo_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_Servo_port.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_UART_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_UART_port.d" -MT"Drivers/API/Src/API_UART_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_UART_port.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_debounce.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_debounce.d" -MT"Drivers/API/Src/API_debounce.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_debounce.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_debounce_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_debounce_port.d" -MT"Drivers/API/Src/API_debounce_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_debounce_port.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_debug_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_debug_port.d" -MT"Drivers/API/Src/API_debug_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_debug_port.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_delay.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_delay.d" -MT"Drivers/API/Src/API_delay.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_delay.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_delay_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_delay_port.d" -MT"Drivers/API/Src/API_delay_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_delay_port.o"
+arm-none-eabi-gcc "../Drivers/API/Src/Error_Management.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/Error_Management.d" -MT"Drivers/API/Src/Error_Management.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/Error_Management.o"
+../Drivers/API/Src/API_UART_port.c: In function 'UART_Rx_IT':
+../Drivers/API/Src/API_UART_port.c:20:38: warning: passing argument 2 of 'HAL_UART_Receive_IT' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+   20 |         HAL_UART_Receive_IT(&huart4, &rxByte, 1);
+      |                                      ^~~~~~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/API_UART_port.h:13,
+                 from ../Drivers/API/Src/API_UART_port.c:8:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:748:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile uint8_t *' {aka 'volatile unsigned char *'}
+  748 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+arm-none-eabi-gcc "../Drivers/API/Src/fonts.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/fonts.d" -MT"Drivers/API/Src/fonts.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/fonts.o"
+arm-none-eabi-gcc "../Drivers/API/Src/ssd1306.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/ssd1306.d" -MT"Drivers/API/Src/ssd1306.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/ssd1306.o"
+arm-none-eabi-gcc -o "Trabajo_final_PdM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Trabajo_final_PdM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Trabajo_final_PdM.elf
+ 
+arm-none-eabi-size  Trabajo_final_PdM.elf 
+arm-none-eabi-objdump -h -S Trabajo_final_PdM.elf  > "Trabajo_final_PdM.list"
+   text	   data	    bss	    dec	    hex	filename
+  42332	    108	   3276	  45716	   b294	Trabajo_final_PdM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Trabajo_final_PdM.list
+ 
+13:19:49 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_Display.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_Display.d" -MT"Drivers/API/Src/API_Display.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_Display.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_UART_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_UART_port.d" -MT"Drivers/API/Src/API_UART_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_UART_port.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Drivers/API/Src/API_UART_port.c: In function 'UART_Rx_IT':
+../Drivers/API/Src/API_UART_port.c:20:38: warning: passing argument 2 of 'HAL_UART_Receive_IT' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+   20 |         HAL_UART_Receive_IT(&huart4, &rxByte, 1);
+      |                                      ^~~~~~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/API_UART_port.h:13,
+                 from ../Drivers/API/Src/API_UART_port.c:8:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:748:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile uint8_t *' {aka 'volatile unsigned char *'}
+  748 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Trabajo_final_PdM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Trabajo_final_PdM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Trabajo_final_PdM.elf
+ 
+arm-none-eabi-size  Trabajo_final_PdM.elf 
+arm-none-eabi-objdump -h -S Trabajo_final_PdM.elf  > "Trabajo_final_PdM.list"
+   text	   data	    bss	    dec	    hex	filename
+  42332	    108	   3276	  45716	   b294	Trabajo_final_PdM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Trabajo_final_PdM.list
+ 
+19:41:18 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_Display.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_Display.d" -MT"Drivers/API/Src/API_Display.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_Display.o"
+../Drivers/API/Src/API_Display.c:13:24: error: invalid digit "9" in octal constant
+   13 | static const float m=0,043956044;
+      |                        ^~~~~~~~~
+../Drivers/API/Src/API_Display.c:13:24: error: expected identifier or '(' before numeric constant
+make: *** [Drivers/API/Src/subdir.mk:55: Drivers/API/Src/API_Display.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+19:41:30 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_Display.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_Display.d" -MT"Drivers/API/Src/API_Display.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_Display.o"
+../Drivers/API/Src/API_Display.c:13:17: error: invalid digit "9" in octal constant
+   13 | const float m=0,043956044;
+      |                 ^~~~~~~~~
+../Drivers/API/Src/API_Display.c:13:17: error: expected identifier or '(' before numeric constant
+make: *** [Drivers/API/Src/subdir.mk:55: Drivers/API/Src/API_Display.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+19:41:39 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_Display.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_Display.d" -MT"Drivers/API/Src/API_Display.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_Display.o"
+../Drivers/API/Src/API_Display.c:13:11: error: invalid digit "9" in octal constant
+   13 | float m=0,043956044;
+      |           ^~~~~~~~~
+../Drivers/API/Src/API_Display.c:13:11: error: expected identifier or '(' before numeric constant
+make: *** [Drivers/API/Src/subdir.mk:55: Drivers/API/Src/API_Display.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+19:42:21 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_Display.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_Display.d" -MT"Drivers/API/Src/API_Display.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_Display.o"
+arm-none-eabi-gcc -o "Trabajo_final_PdM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Trabajo_final_PdM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Trabajo_final_PdM.elf
+ 
+arm-none-eabi-size  Trabajo_final_PdM.elf 
+arm-none-eabi-objdump -h -S Trabajo_final_PdM.elf  > "Trabajo_final_PdM.list"
+   text	   data	    bss	    dec	    hex	filename
+  42332	    108	   3276	  45716	   b294	Trabajo_final_PdM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Trabajo_final_PdM.list
+ 
+19:46:41 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_Display.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_Display.d" -MT"Drivers/API/Src/API_Display.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_Display.o"
+arm-none-eabi-gcc -o "Trabajo_final_PdM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Trabajo_final_PdM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Trabajo_final_PdM.elf
+ 
+arm-none-eabi-size  Trabajo_final_PdM.elf 
+arm-none-eabi-objdump -h -S Trabajo_final_PdM.elf  > "Trabajo_final_PdM.list"
+   text	   data	    bss	    dec	    hex	filename
+  42332	    108	   3276	  45716	   b294	Trabajo_final_PdM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Trabajo_final_PdM.list
+ 
+19:49:19 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_Servo_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_Servo_port.d" -MT"Drivers/API/Src/API_Servo_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_Servo_port.o"
+arm-none-eabi-gcc -o "Trabajo_final_PdM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Trabajo_final_PdM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Trabajo_final_PdM.elf
+ 
+arm-none-eabi-size  Trabajo_final_PdM.elf 
+arm-none-eabi-objdump -h -S Trabajo_final_PdM.elf  > "Trabajo_final_PdM.list"
+   text	   data	    bss	    dec	    hex	filename
+  42348	    108	   3276	  45732	   b2a4	Trabajo_final_PdM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Trabajo_final_PdM.list
+ 
+19:53:28 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_UART_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_UART_port.d" -MT"Drivers/API/Src/API_UART_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_UART_port.o"
+../Drivers/API/Src/API_UART_port.c: In function 'UART_Rx_IT':
+../Drivers/API/Src/API_UART_port.c:24:60: warning: passing argument 2 of 'HAL_UART_Receive_IT' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+   24 |         HAL_StatusTypeDef ans=HAL_UART_Receive_IT(&huart4, &rxByte, 1);
+      |                                                            ^~~~~~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/API_UART_port.h:13,
+                 from ../Drivers/API/Src/API_UART_port.c:8:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:748:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile uint8_t *' {aka 'volatile unsigned char *'}
+  748 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Trabajo_final_PdM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Trabajo_final_PdM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Trabajo_final_PdM.elf
+ 
+arm-none-eabi-size  Trabajo_final_PdM.elf 
+arm-none-eabi-objdump -h -S Trabajo_final_PdM.elf  > "Trabajo_final_PdM.list"
+   text	   data	    bss	    dec	    hex	filename
+  42380	    108	   3276	  45764	   b2c4	Trabajo_final_PdM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Trabajo_final_PdM.list
+ 
+19:53:53 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_UART_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_UART_port.d" -MT"Drivers/API/Src/API_UART_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_UART_port.o"
+../Drivers/API/Src/API_UART_port.c: In function 'UART_Rx_IT':
+../Drivers/API/Src/API_UART_port.c:24:60: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   24 |         HAL_StatusTypeDef ans=HAL_UART_Receive_IT(&huart4, (uint8_t)&rxByte, 1);
+      |                                                            ^
+../Drivers/API/Src/API_UART_port.c:24:60: warning: passing argument 2 of 'HAL_UART_Receive_IT' makes pointer from integer without a cast [-Wint-conversion]
+   24 |         HAL_StatusTypeDef ans=HAL_UART_Receive_IT(&huart4, (uint8_t)&rxByte, 1);
+      |                                                            ^~~~~~~~~~~~~~~~
+      |                                                            |
+      |                                                            unsigned char
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/API_UART_port.h:13,
+                 from ../Drivers/API/Src/API_UART_port.c:8:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:748:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'unsigned char'
+  748 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Trabajo_final_PdM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Trabajo_final_PdM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Trabajo_final_PdM.elf
+ 
+arm-none-eabi-size  Trabajo_final_PdM.elf 
+arm-none-eabi-objdump -h -S Trabajo_final_PdM.elf  > "Trabajo_final_PdM.list"
+   text	   data	    bss	    dec	    hex	filename
+  42388	    108	   3276	  45772	   b2cc	Trabajo_final_PdM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Trabajo_final_PdM.list
+ 
+19:53:58 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_UART_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_UART_port.d" -MT"Drivers/API/Src/API_UART_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_UART_port.o"
+arm-none-eabi-gcc -o "Trabajo_final_PdM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Trabajo_final_PdM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Trabajo_final_PdM.elf
+ 
+arm-none-eabi-size  Trabajo_final_PdM.elf 
+arm-none-eabi-objdump -h -S Trabajo_final_PdM.elf  > "Trabajo_final_PdM.list"
+   text	   data	    bss	    dec	    hex	filename
+  42380	    108	   3276	  45764	   b2c4	Trabajo_final_PdM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Trabajo_final_PdM.list
+ 
+19:54:05 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_UART_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_UART_port.d" -MT"Drivers/API/Src/API_UART_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_UART_port.o"
+../Drivers/API/Src/API_UART_port.c: In function 'UART_Rx_IT':
+../Drivers/API/Src/API_UART_port.c:24:60: warning: passing argument 2 of 'HAL_UART_Receive_IT' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+   24 |         HAL_StatusTypeDef ans=HAL_UART_Receive_IT(&huart4, &rxByte, 1);
+      |                                                            ^~~~~~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/API_UART_port.h:13,
+                 from ../Drivers/API/Src/API_UART_port.c:8:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:748:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile uint8_t *' {aka 'volatile unsigned char *'}
+  748 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Trabajo_final_PdM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Trabajo_final_PdM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Trabajo_final_PdM.elf
+ 
+arm-none-eabi-size  Trabajo_final_PdM.elf 
+arm-none-eabi-objdump -h -S Trabajo_final_PdM.elf  > "Trabajo_final_PdM.list"
+   text	   data	    bss	    dec	    hex	filename
+  42380	    108	   3276	  45764	   b2c4	Trabajo_final_PdM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Trabajo_final_PdM.list
+ 
+19:54:47 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_UART_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_UART_port.d" -MT"Drivers/API/Src/API_UART_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_UART_port.o"
+../Drivers/API/Src/API_UART_port.c: In function 'UART_Rx_IT':
+../Drivers/API/Src/API_UART_port.c:24:60: warning: passing argument 2 of 'HAL_UART_Receive_IT' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+   24 |         HAL_StatusTypeDef ans=HAL_UART_Receive_IT(&huart4, &rxByte, 1);                 //warning aceptable: (No le gusta que sea volatile)
+      |                                                            ^~~~~~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/API_UART_port.h:13,
+                 from ../Drivers/API/Src/API_UART_port.c:8:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:748:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile uint8_t *' {aka 'volatile unsigned char *'}
+  748 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Trabajo_final_PdM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Trabajo_final_PdM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Trabajo_final_PdM.elf
+ 
+arm-none-eabi-size  Trabajo_final_PdM.elf 
+arm-none-eabi-objdump -h -S Trabajo_final_PdM.elf  > "Trabajo_final_PdM.list"
+   text	   data	    bss	    dec	    hex	filename
+  42380	    108	   3276	  45764	   b2c4	Trabajo_final_PdM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Trabajo_final_PdM.list
+ 
+19:55:08 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_UART_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_UART_port.d" -MT"Drivers/API/Src/API_UART_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_UART_port.o"
+../Drivers/API/Src/API_UART_port.c: In function 'UART_Rx_IT':
+../Drivers/API/Src/API_UART_port.c:24:60: warning: passing argument 2 of 'HAL_UART_Receive_IT' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+   24 |         HAL_StatusTypeDef ans=HAL_UART_Receive_IT(&huart4, &rxByte, 1);                 //warning aceptable: (No le gusta que sea volatile)
+      |                                                            ^~~~~~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/API_UART_port.h:13,
+                 from ../Drivers/API/Src/API_UART_port.c:8:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:748:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile uint8_t *' {aka 'volatile unsigned char *'}
+  748 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Trabajo_final_PdM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Trabajo_final_PdM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Trabajo_final_PdM.elf
+ 
+arm-none-eabi-size  Trabajo_final_PdM.elf 
+arm-none-eabi-objdump -h -S Trabajo_final_PdM.elf  > "Trabajo_final_PdM.list"
+   text	   data	    bss	    dec	    hex	filename
+  42380	    108	   3276	  45764	   b2c4	Trabajo_final_PdM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Trabajo_final_PdM.list
+ 
+19:55:33 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_ADC_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_ADC_port.d" -MT"Drivers/API/Src/API_ADC_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_ADC_port.o"
+arm-none-eabi-gcc -o "Trabajo_final_PdM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Trabajo_final_PdM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Trabajo_final_PdM.elf
+ 
+arm-none-eabi-size  Trabajo_final_PdM.elf 
+arm-none-eabi-objdump -h -S Trabajo_final_PdM.elf  > "Trabajo_final_PdM.list"
+   text	   data	    bss	    dec	    hex	filename
+  42380	    108	   3276	  45764	   b2c4	Trabajo_final_PdM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Trabajo_final_PdM.list
+ 
+19:55:44 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_ADC_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_ADC_port.d" -MT"Drivers/API/Src/API_ADC_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_ADC_port.o"
+arm-none-eabi-gcc -o "Trabajo_final_PdM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Trabajo_final_PdM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Trabajo_final_PdM.elf
+ 
+arm-none-eabi-size  Trabajo_final_PdM.elf 
+arm-none-eabi-objdump -h -S Trabajo_final_PdM.elf  > "Trabajo_final_PdM.list"
+   text	   data	    bss	    dec	    hex	filename
+  42380	    108	   3276	  45764	   b2c4	Trabajo_final_PdM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Trabajo_final_PdM.list
+ 
+20:00:29 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/Error_Management.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/Error_Management.d" -MT"Drivers/API/Src/Error_Management.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/Error_Management.o"
+arm-none-eabi-gcc -o "Trabajo_final_PdM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Trabajo_final_PdM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Trabajo_final_PdM.elf
+ 
+arm-none-eabi-size  Trabajo_final_PdM.elf 
+arm-none-eabi-objdump -h -S Trabajo_final_PdM.elf  > "Trabajo_final_PdM.list"
+   text	   data	    bss	    dec	    hex	filename
+  42380	    108	   3276	  45764	   b2c4	Trabajo_final_PdM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Trabajo_final_PdM.list
+ 
+20:02:07 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_ADC_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_ADC_port.d" -MT"Drivers/API/Src/API_ADC_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_ADC_port.o"
+../Drivers/API/Src/API_ADC_port.c: In function 'ADC_Start':
+../Drivers/API/Src/API_ADC_port.c:18:17: warning: implicit declaration of function 'System_Error_Handler' [-Wimplicit-function-declaration]
+   18 |                 System_Error_Handler();
+      |                 ^~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Trabajo_final_PdM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Trabajo_final_PdM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Trabajo_final_PdM.elf
+ 
+arm-none-eabi-size  Trabajo_final_PdM.elf 
+arm-none-eabi-objdump -h -S Trabajo_final_PdM.elf  > "Trabajo_final_PdM.list"
+   text	   data	    bss	    dec	    hex	filename
+  42420	    108	   3276	  45804	   b2ec	Trabajo_final_PdM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Trabajo_final_PdM.list
+ 
+20:02:21 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_ADC_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_ADC_port.d" -MT"Drivers/API/Src/API_ADC_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_ADC_port.o"
+arm-none-eabi-gcc -o "Trabajo_final_PdM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Trabajo_final_PdM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Trabajo_final_PdM.elf
+ 
+arm-none-eabi-size  Trabajo_final_PdM.elf 
+arm-none-eabi-objdump -h -S Trabajo_final_PdM.elf  > "Trabajo_final_PdM.list"
+   text	   data	    bss	    dec	    hex	filename
+  42420	    108	   3276	  45804	   b2ec	Trabajo_final_PdM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Trabajo_final_PdM.list
+ 
+20:03:07 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_ADC_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_ADC_port.d" -MT"Drivers/API/Src/API_ADC_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_ADC_port.o"
+arm-none-eabi-gcc -o "Trabajo_final_PdM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Trabajo_final_PdM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Trabajo_final_PdM.elf
+ 
+arm-none-eabi-size  Trabajo_final_PdM.elf 
+arm-none-eabi-objdump -h -S Trabajo_final_PdM.elf  > "Trabajo_final_PdM.list"
+   text	   data	    bss	    dec	    hex	filename
+  42412	    108	   3276	  45796	   b2e4	Trabajo_final_PdM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Trabajo_final_PdM.list
+ 
+20:03:24 **** Incremental Build of configuration Debug for project Trabajo_final_PdM ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_ADC_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Src" -I"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Core/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_ADC_port.d" -MT"Drivers/API/Src/API_ADC_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_ADC_port.o"
+arm-none-eabi-gcc -o "Trabajo_final_PdM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Trabajo_final_PdM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Trabajo_final_PdM.elf
+ 
+arm-none-eabi-size  Trabajo_final_PdM.elf 
+arm-none-eabi-objdump -h -S Trabajo_final_PdM.elf  > "Trabajo_final_PdM.list"
+   text	   data	    bss	    dec	    hex	filename
+  42412	    108	   3276	  45796	   b2e4	Trabajo_final_PdM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Trabajo_final_PdM.list
+ 

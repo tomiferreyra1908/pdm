@@ -35,7 +35,9 @@ Drivers/API/Src/API_UART_port.o: ../Drivers/API/Src/API_UART_port.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/API_Display.h \
  /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/ssd1306.h \
- /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/fonts.h
+ /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/fonts.h \
+ /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/Error_Management.h \
+ /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/Error_Management.h
 /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/API_UART_port.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -73,3 +75,5 @@ Drivers/API/Src/API_UART_port.o: ../Drivers/API/Src/API_UART_port.c \
 /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/API_Display.h:
 /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/ssd1306.h:
 /home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/fonts.h:
+/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/Error_Management.h:
+/home/tomas1908/STM32CubeIDE/workspace_1.19.0/pdm/Trabajo_final_PdM/Drivers/API/Inc/Error_Management.h:

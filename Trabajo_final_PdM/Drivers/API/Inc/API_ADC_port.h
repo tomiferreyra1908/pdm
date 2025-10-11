@@ -20,5 +20,4 @@ void ADC_Start(void);
 void ADC_Stop(void);
 uint32_t get_ADC_value(void);
 
-
 #endif /* API_INC_API_ADC_PORT_H_ */

@@ -7,15 +7,30 @@
 
 #include "API_UART_port.h"
 #include "API_Display.h"
+#include "Error_Management.h"
 
 extern UART_HandleTypeDef huart4;
 extern volatile uint8_t rxByte;
 
 void UART_Tx(uint32_t data_tx){
-	HAL_UART_Transmit(&huart4, (uint8_t*)&data_tx, sizeof(uint32_t),HAL_MAX_DELAY);
+	HAL_StatusTypeDef ans=HAL_UART_Transmit(&huart4, (uint8_t*)&data_tx, sizeof(uint32_t),HAL_MAX_DELAY);
+	if(ans==HAL_ERROR){
+		System_Error_Handler();
+	}
 }
 
 
 void UART_Rx_IT(void){
-	HAL_UART_Receive_IT(&huart4, &rxByte, 1);
+	HAL_StatusTypeDef ans=HAL_UART_Receive_IT(&huart4, &rxByte, 1);			//warning aceptable: (No le gusta que sea volatile)
+	if(ans==HAL_ERROR){
+		System_Error_Handler();
+	}
+}
+
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
+	if (huart->Instance == UART4){
+		change_screen(rxByte);			//Se realiza el cambio de display si es que el comando corresponde
+		UART_Rx_IT();					//Se vuelve a inicializar la interrupcion por UART
+	}
 }

@@ -1,2 +1,2 @@
-../Drivers/API/Src/API_Servo_port.c:15:6:PWM_update	1
-../Drivers/API/Src/API_Servo_port.c:19:6:PWM_Init_port	1
+../Drivers/API/Src/API_Servo_port.c:16:6:PWM_update	1
+../Drivers/API/Src/API_Servo_port.c:20:6:PWM_Init_port	2

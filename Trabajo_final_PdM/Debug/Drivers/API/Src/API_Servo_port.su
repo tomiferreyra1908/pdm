@@ -1,2 +1,2 @@
-../Drivers/API/Src/API_Servo_port.c:15:6:PWM_update	16	static
-../Drivers/API/Src/API_Servo_port.c:19:6:PWM_Init_port	8	static
+../Drivers/API/Src/API_Servo_port.c:16:6:PWM_update	16	static
+../Drivers/API/Src/API_Servo_port.c:20:6:PWM_Init_port	16	static

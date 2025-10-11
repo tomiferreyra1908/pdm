@@ -11,6 +11,4 @@
 ../Core/Src/main.c:504:6:action_read	1
 ../Core/Src/main.c:514:6:First_Write	1
 ../Core/Src/main.c:525:6:action_write	1
-../Core/Src/main.c:540:6:HAL_ADC_ConvCpltCallback	2
-../Core/Src/main.c:554:6:HAL_UART_RxCpltCallback	2
-../Core/Src/main.c:567:6:Error_Handler	1
+../Core/Src/main.c:541:6:Error_Handler	1
